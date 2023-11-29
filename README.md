@@ -74,7 +74,8 @@
         <img width="550" src="https://contrib.rocks/image?repo=krahets/hello-algo" />
     </a>
 </p>
-# 个人
+
+## 个人计划
 
 本人计划花费3个月左右的时间，将这本书学完，算是将算法入门，为后续的相关学习打基础。
 
