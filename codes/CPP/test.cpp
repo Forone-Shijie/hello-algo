@@ -1,9 +1,20 @@
 
 #include <iostream>
+#include <sstream>
+#include <string>
 
-int main()
-{
-    std::cout << "Hello World!" << std::endl;
-    std::cout << "Hello World" << std::endl;
-    return 0;
+std::string nestedForloop(int n){
+    std::ostringstream res;
+
+    for (int i=1; i<=n; ++i){
+        for (int j=1; j<=n; ++j){
+            res << "(" << i << ", " << j << "), ";
+        }
+    }
+    return res.str();
+}
+
+int main(){
+    int n = 5;
+    std::cout << nestedForloop(n) << std::endl;
 }
