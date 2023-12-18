@@ -38,16 +38,46 @@
 //     result
 // }
 
-fn fib(n: i32) -> i32{
-    if n==1 || n==2{
-        return n-1;
-    }
+// fn fib(n: i32) -> i32{
+//     if n==1 || n==2{
+//         return n-1;
+//     }
 
-    let res = fib(n-1) + fib(n-2);
+//     let res = fib(n-1) + fib(n-2);
 
-    res
+//     res
+// }
+
+// fn main(){
+//     println!("Result = {}", fib(5));
+// }
+fn insert (array: &mut Vec<i32>, num: i32, index: usize){
+    array.insert(index, num)
+}
+
+use std::rc::Rc;
+use std::cell::RefCell;
+
+#[derive(Debug)] 
+// 使该链表实例能够被printf! {:?}输出
+struct ListNode {
+    val: i32,
+    next: Option<Rc<RefCell<ListNode>>>, // 指向下一个节点的指针
 }
 
 fn main(){
-    println!("Result = {}", fib(5));
+    // let mut arr: Vec<i32> = vec![0; 5];
+    // insert(&mut arr, 5, 0);
+    // println!("Result : {:?}", arr);
+
+    let tail = Rc::new(RefCell::new(ListNode {val: 3, next: None, }));
+
+    let second = Rc::new(RefCell::new(ListNode {val: 2, next: Some(Rc::clone(&tail)),}));
+    let first = Rc::new(RefCell::new(ListNode {val: 1, next: Some(Rc::clone(&tail)), }));
+
+    println!("The first ListNode is {:?}", first);
+
+
 }
+
+
